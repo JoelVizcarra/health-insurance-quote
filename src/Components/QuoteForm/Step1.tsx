@@ -23,13 +23,13 @@ const Step1 = () => {
         <FormikControl
           control="input"
           type="text"
-          label="Numero de documento"
+          label="Número de documento"
           name="documentNumber"
         />
       </div>
       <FormikControl
         control="date"
-        label="Fecha de naciemiento"
+        label="Fecha de nacimiento"
         name="birthdate"
       />
       <FormikControl
