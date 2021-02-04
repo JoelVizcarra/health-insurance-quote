@@ -1,4 +1,4 @@
-# Healt Insurance Quote App
+# Health Insurance Quote App
 
 ## Available Scripts
 
