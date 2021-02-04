@@ -1,0 +1,44 @@
+.plan-selector {
+  display: flex;
+
+  p {
+    margin: .5rem;
+  }
+
+  &__item {
+    border: solid 1px $color-light-grey;
+    border-radius: 10px;
+    padding: 0 .5rem;
+    margin: .3rem;
+
+    &--selected {
+      border: solid 1px $color-green;
+
+      :after {
+        content: '';
+      }
+    }
+  }
+
+  &__name {
+    text-transform: uppercase;
+    font-size: .8rem
+  }
+
+  &__price {
+    &__currency-symbol {
+      position: relative;
+      top: -1rem;
+      font-size: .5em;
+    }    
+    &__number {
+      font-size: 2em;
+    }
+  }  
+
+  &__time {
+    font-size: .8rem
+  }
+
+}
+
