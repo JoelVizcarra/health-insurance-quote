@@ -9,7 +9,7 @@ const Step3 = () => {
     <div>
       <PlanSelector />
       <button className="button button--primary" type="submit">
-        Siguiente
+        comprar plan
       </button>
     </div>
   );

@@ -24,17 +24,12 @@ const initialFormValues: QuoteFormDataType = {
 };
 
 const QuoteForm = () => {
-  const [currentStep, setCurrentStep] = useState(3);
+  const [currentStep, setCurrentStep] = useState(1);
   const [initialValues, setInitialValues] = useState(initialFormValues);
 
   const handleSubmit = (values: QuoteFormDataType) => {
     console.log(values);
     if (currentStep < 4) setCurrentStep((prev) => prev + 1);
-  };
-
-  const reset = (resetForm: any) => {
-    setCurrentStep(1);
-    resetForm();
   };
 
   const getValidationSchema = () => {
@@ -66,7 +61,6 @@ const QuoteForm = () => {
             <Stepper
               currentStep={currentStep}
               stepsNumber={STEPS_NUMBER}
-              resetForm={() => reset(handleReset)}
               setInitialValues={setInitialValues}
             />
           </Form>

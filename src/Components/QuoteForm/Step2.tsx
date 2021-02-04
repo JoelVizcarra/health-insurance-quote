@@ -1,8 +1,8 @@
 import FormikControl from './../FormikControl';
 import * as Yup from 'yup';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-import { fetchRandomUser } from './../../api/user';
+import { fetchRandomUser, UserSate } from './../../api/user';
 
 export const Step2Schema = Yup.object().shape({
   documentType: Yup.string().required('El tipo de documento es obligatiorio.'),
@@ -28,10 +28,13 @@ const insuranceClientOptions = [
 ];
 
 const Step2 = ({ setInitialValues }: any) => {
+  const [userState, setUserState] = useState<UserSate | undefined>();
+
   useEffect(() => {
     async function populateUserState() {
       try {
         const user = await fetchRandomUser();
+        setUserState(user);
         setInitialValues((prev: QuoteFormDataType) => ({ ...prev, ...user }));
       } catch (error) {
         console.error('get-user-api', error);
@@ -42,6 +45,9 @@ const Step2 = ({ setInitialValues }: any) => {
 
   return (
     <div>
+      <h1>Hola, {userState && userState.firstName}</h1>
+      <small>Valida que los datos sean correctos</small>
+      <p>Datos personales del titular</p>
       <FormikControl
         control="select"
         label="Tipo de documento"
@@ -92,7 +98,7 @@ const Step2 = ({ setInitialValues }: any) => {
         name="insuranceClient"
       />
       <button className="button button--primary" type="submit">
-        Submit
+        continuar
       </button>
     </div>
   );

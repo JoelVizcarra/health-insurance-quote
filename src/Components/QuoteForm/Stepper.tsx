@@ -6,14 +6,12 @@ import Result from './Result';
 type props = {
   currentStep: number;
   stepsNumber: number;
-  resetForm: any;
   setInitialValues: React.Dispatch<React.SetStateAction<QuoteFormDataType>>;
 };
 
 const Stepper = ({
   currentStep,
   stepsNumber,
-  resetForm,
   setInitialValues,
   ...rest
 }: props) => {
@@ -25,7 +23,7 @@ const Stepper = ({
     case 3:
       return <Step3 {...rest} />;
     case stepsNumber:
-      return <Result resetForm={resetForm} {...rest} />;
+      return <Result {...rest} />;
     default:
       return null;
   }

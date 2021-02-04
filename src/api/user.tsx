@@ -86,8 +86,8 @@ export const fetchRandomUser = async () => {
   const data = await (await fetch(endpoint)).json();
   const [firstUser] = data.results.map(
     ({ id, dob, name, gender }: ResultsEntity) => ({
-      documentType: id.name,
-      documentNumber: id.value,
+      documentType: !!id.name && id.name,
+      documentNumber: !!id.name && id.value,
       birthdate: dob.date,
       firstName: name.first,
       paternalLastName: name.last,
